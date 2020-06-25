@@ -130,115 +130,6 @@ include('session.php');
   <script>
    
   
-                              var btnStart = document.getElementById( "btn-start" );
-                               // var btnStop = document.getElementById( "btn-stop" );
-                                var btnCapture = document.getElementById( "btn-capture" );
-                                var btnSubmitReg=document.getElementById( "btn-submit" );
-                           
-
-                                // The stream & capture
-                                var stream = document.getElementById( "stream" );
-                                var capture = document.getElementById( "capture" );
-                                var snapshot = document.getElementById( "snapshot" );
-
-                                // The video stream
-                                var cameraStream = null;
-                                var ctx = null;
-                                var img = null;
-                                var image_data = null;
-
-                                // Attach listeners
-                                btnStart.addEventListener( "click", startStreaming );
-                               // btnStop.addEventListener( "click", stopStreaming );
-                                btnCapture.addEventListener( "click", captureSnapshot );
-                                btnSubmitReg.addEventListener( "click", submitReg );
-                                ctx = capture.getContext( '2d' );
-
-                                       
-                               
-
-                                // Start Streaming
-                                function startStreaming() {
-
-                                    if (cameraStream !== null){
-                                    ctx.clearRect(0, 0, capture.width, capture.height);
-                                    } else {
-                                    
-                                    var mediaSupport = 'mediaDevices' in navigator;
-
-                                    if( mediaSupport && null == cameraStream ) {
-
-                                        navigator.mediaDevices.getUserMedia( { video: true } )
-                                        .then( function( mediaStream ) {
-
-                                            cameraStream = mediaStream;
-
-                                            stream.srcObject = mediaStream;
-
-                                            stream.play();
-                                        })
-                                        .catch( function( err ) {
-
-                                            console.log( "Unable to access camera: " + err );
-                                        });
-                                    }
-                                    else {
-
-                                        alert( 'Your browser does not support media devices.' );
-
-                                        return;
-                                    }
-                                    }
-                                }
-
-                                // Stop Streaming
-                                function stopStreaming() {
-
-                                    if( null != cameraStream ) {
-
-                                        var track = cameraStream.getTracks()[ 0 ];
-
-                                        track.stop();
-                                        stream.load();
-
-                                        cameraStream = null;
-                                    }
-                                }
-
-                                function captureSnapshot() {
-
-                                    if( null != cameraStream ) {
-
-                                      
-                                        //x = document.getElementById("demo")
-
-                                      //  document.getElementById("capture").style.zIndex = "1";
-                                         
-                                         img = new Image();
-
-                                        ctx.drawImage( stream, 0, 0, capture.width, capture.height );
-
-                                        
-                                       
-                                    
-                                    
-                                    
-                                             image_data = capture.toDataURL("image/png");
-                                      // $.post("saveImg.php", {cam_image: image_data});
-                                      
-                                      //document.getElementById("capture").style.visibility = "visible"
-                                       // var user = rand;
-                                               // var userStr = JSON.stringify(user);
-                                              
-                                                }
-
-                                       
-
-                                    }
-
-
-
-
                                     //for submit button
                                     function submitReg() {
 
@@ -335,7 +226,7 @@ include('session.php');
 
 
 
-      function queryVisitor() {
+      function queryComp() {
                   // $(function(){ 
                         
                     //  $("#getusers").on('click', function(){ 
