@@ -37,7 +37,7 @@ include('session.php');
       <div><img src="logo.gif" width="40" height="auto"></i> Visitor Management Software</div>
         <div class="btn-group">
           <button class="btn buttonMenu" id="addNew" onclick="window.location.href='addNew.php'">Add Visitor</button>
-         <!-- <button class="btn buttonMenu" id="addComp" style="font-weight: bold;">Add Company</button> -->
+           <button class="btn buttonMenu" id="addComp" style="font-weight: bold;">Add Company</button> 
           <button class="btn buttonMenu" id="timeIn" onclick="window.location.href='timeIn.php'">Time In</button>
           <button class="btn buttonMenu" id="timeOut" onclick="window.location.href='timeOut.php'">Time Out</button>
           <button class="btn buttonMenu" id="report" onclick="window.location.href='report.php'">Reports</button>
@@ -108,7 +108,7 @@ include('session.php');
           <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Company/th>
+              <th scope="col">Company</th>
               <th scope="col">Address</th>
               <th scope="col">Contact #</th>
               <th scope="col">Type</th>
