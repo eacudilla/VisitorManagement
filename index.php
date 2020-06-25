@@ -51,7 +51,7 @@
 
 
 <div id="disp" >
- <img src ="sec.gif" class="logo">
+ <img src ="logo.gif" class="logo">
  <h2 class="title"> Visitor Management System</h2>
      <div id="setLogin">
         <form action="index.php" method="POST">

@@ -37,7 +37,7 @@ include('session.php');
   <main>
     <div class="container text-center" >
       <h1 class="p-3 mb-2 bg-info text-white">
-        <div><img src="sec.gif" width="40" height="auto"></i> Visitor Management Software</div>
+        <div><img src="logo.gif" width="40" height="auto"></i> Visitor Management Software</div>
         <div class="btn-group">
           <button class="btn buttonMenu" id="addNew" onclick="window.location.href='addNew.php'">Add Visitor</button>
           <button class="btn buttonMenu" id="timeIn" onclick="window.location.href='timeIn.php'">Time In</button>
