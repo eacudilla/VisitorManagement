@@ -155,7 +155,7 @@ include('session.php');
                         if(isValid){
                             // document.getElementById('ss-form').submit();
                             
-                                    if(image_data !== null){
+                                
 
                                         $.ajax({
                                           url: 'addCompNewDB.php',
@@ -184,11 +184,6 @@ include('session.php');
                                                         alert("somethings wrong");
                                                     })
 
-                                                                        
-                                                                    
-                                                } else{
-                                                    alert('Please Capture Photo!');
-                                                }
                                 
                                 }
                                 else {
