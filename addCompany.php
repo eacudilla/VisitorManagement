@@ -180,7 +180,9 @@ include('session.php');
                                                 window.location.href = "addCompany.php";
                                              }
                                                  
-                                }
+                                        }
+
+                             }
                                 else {
                                     alert('Please fill all required fields');
                                 }
