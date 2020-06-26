@@ -133,7 +133,7 @@ include('session.php');
                       var jcompName = document.getElementById("compName").value;
                       var jcompAddress = document.getElementById("compAddress").value;
                       var jcompContact = document.getElementById("compContact").value;
-                      var jcompType = document.getElementById("gender").value;
+                      var jcompType = document.getElementById("compType").value;
                     
 
                       var j1 = document.getElementById("compName");
