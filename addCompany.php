@@ -30,7 +30,7 @@ include('session.php');
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
-<body onload="startStreaming()">
+<body >
   <main>
     <div class="container text-center" >
       <h1 class="p-3 mb-2 bg-info text-white">
@@ -97,17 +97,13 @@ include('session.php');
             </div>
 
 
-
-
-
-
  
       <!--  Table -->
       <div class="d-flex table-data">
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">ID</th>
+              <th scope="col">NO</th>
               <th scope="col">Company</th>
               <th scope="col">Address</th>
               <th scope="col">Contact #</th>
@@ -129,96 +125,85 @@ include('session.php');
 
   <script>
    
-  
-                                    //for submit button
-                                    function submitReg() {
+
+ function submitReg() {
 
 
 
-                                             var jfname = document.getElementById("fname").value;
-                                            var jlname = document.getElementById("lname").value;
-                                            var jage = document.getElementById("age").value;
-                                            var jgender = document.getElementById("gender").value;
-                                            var jcontact = document.getElementById("contact").value;
-                                            var jcompany = document.getElementById("company").value;
-                                            var jcompAddress = document.getElementById("compAddress").value;
+                      var jcompName = document.getElementById("compName").value;
+                      var jcompAddress = document.getElementById("compAddress").value;
+                      var jcompContact = document.getElementById("compContact").value;
+                      var jcompType = document.getElementById("gender").value;
+                    
 
-
-                                            var j1 = document.getElementById("fname");
-                                            var j2 = document.getElementById("lname");
-                                            var j3 = document.getElementById("age");
-                                            var j4 = document.getElementById("gender");
-                                            var j5 = document.getElementById("contact");
-                                            var j6 = document.getElementById("company");
-                                            var j7 = document.getElementById("compAddress");
-
+                      var j1 = document.getElementById("compName");
+                      var j2 = document.getElementById("compAddress");
+                      var j3 = document.getElementById("compType");
+                                    
 
                                           
-                                                var isValid = true;
+                        var isValid = true;
 
-                                                var j = [j1,j2,j3,j4,j6,j7];
+                        var j = [j1,j2,j3];
 
-                                                for(var i=0; i < j.length; i++){
-                                                    if(j[i].value.length < 1){
-                                                    isValid = false;
-                                                    }
-                                                }
+                        for(var i=0; i < j.length; i++){
+                            if(j[i].value.length < 1){
+                            isValid = false;
+                            }
+                        }
 
-                                                if(isValid){
-                                                   // document.getElementById('ss-form').submit();
-                                                   
-                                                            if(image_data !== null){
+                        if(isValid){
+                            // document.getElementById('ss-form').submit();
+                            
+                                    if(image_data !== null){
 
-                                                                $.ajax({
-                                                                                url: 'newReg.php',
-                                                                                type: 'post',
-                                                                                enctype: 'multipart/form-data',
-                                                                            // processData: false,  // Important!
-                                                                            //   contentType: false,
-                                                                                cache: false,                        
-                                                                            timeout: 600000,
-                                                                            async: false, 
-                                                                                data: {          
-                                                                                                                    
-                                                                                        'fname': jfname,
-                                                                                        'lname': jlname,
-                                                                                        'age': jage,
-                                                                                        'gender': jgender,
-                                                                                        'contact': jcontact,
-                                                                                        'company': jcompany,
-                                                                                        'compAddress': jcompAddress,
-                                                                                        'cam_image': image_data 
-                                                                                    
-                                                                                        },
-                                                                                        success: function(response){
-                                                                                            alert(response);
-                                                                                            window.location.href = "addNew.php";
+                                        $.ajax({
+                                          url: 'addCompNewDB.php',
+                                          type: 'post',
+                                          enctype: 'multipart/form-data',
+                                      // processData: false,  // Important!
+                                      //   contentType: false,
+                                          cache: false,                        
+                                      timeout: 600000,
+                                      async: false, 
+                                          data: {          
                                                                                             
-                                                                                                }
-                                                                                                }).error(function(){
-                                                                                                    alert("somethings wrong");
-                                                                                                })
-
-                                                                                               
-                                                                                            
-                                                                        } else{
-                                                                            alert('Please Capture Photo!');
-                                                                        }
-                                                        
-                                                        }
-                                                        else {
-                                                            alert('Please fill all required fields');
-                                                        }
+                                            'compName': jcompName,
+                                            'compAddress': jcompAddress,
+                                            'compContact': jcompContact,
+                                            'compType': jcompType,
+                                          
+                                        
+                                            },
+                                            success: function(response){
+                                                alert(response);
+                                                window.location.href = "addCompany.php";
                                                 
+                                                    }
+                                                    }).error(function(){
+                                                        alert("somethings wrong");
+                                                    })
+
+                                                                        
+                                                                    
+                                                } else{
+                                                    alert('Please Capture Photo!');
+                                                }
+                                
+                                }
+                                else {
+                                    alert('Please fill all required fields');
+                                }
+                        
 
 
 
+
+
+
+
+            }
             
-
-
-
-                                    }
-                                    
 
 
 
@@ -309,21 +294,14 @@ function imgModal(imgVisitor){
    
 var imgSrc = document.getElementById(imgVisitor).src
   
-   // var  = document.getElementById("youtubeimg").src
-   // let img = imgModal;
-   // alert (imgSrc);
+
         modal.style.display = "block";
         modalImg.src = imgSrc;
-       // captionText.innerHTML = imgAlt;
-   // captionText.innerHTML = imgSrc.alt;
-
-
 
 }
-// Get the <span> element that closes the modal
+
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on <span> (x), close the modal
 span.onclick = function() { 
   modal.style.display = "none";
 }
