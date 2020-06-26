@@ -174,16 +174,12 @@ include('session.php');
                                             'compType': jcompType,
                                           
                                         
-                                            },
-                                            success: function(response){
+                                            }
+                                             success: function(response){
                                                 alert(response);
                                                 window.location.href = "addCompany.php";
                                                 
-                                                    }
-                                                    }).error(function(){
-                                                        alert("somethings wrong");
-                                                    })
-                                
+                                                 
                                 }
                                 else {
                                     alert('Please fill all required fields');
