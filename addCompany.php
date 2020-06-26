@@ -120,11 +120,11 @@ include('session.php');
       <div id="notfound"></div>
     
   </main>
-
+  <script src="/js/compReg.js"></script>
 
 
   <script>
-    <script src="/js/compReg.js"></script>
+   
 
             
 
