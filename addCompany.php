@@ -174,12 +174,7 @@ include('session.php');
                       }); 
                   // }); 
                 //}); 
-            } else {
-
-                  string = "";
-                  $("tbody").html(string); 
-
-            }
+         
 
 
 
