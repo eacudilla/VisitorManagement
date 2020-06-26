@@ -24,7 +24,7 @@ $compName = $compAddress = $compContact = $compType = "";
 
 
   
-    $sql = "INSERT INTO visitor (comp_name, comp_address, comp_number, comp_type) VALUES (?,?,?,?)";
+    $sql = "INSERT INTO company (comp_name, comp_address, comp_number, comp_type) VALUES (?,?,?,?)";
   
     if($stmt = mysqli_prepare($db, $sql)){
         // Bind variables to the prepared statement as parameters
@@ -65,7 +65,7 @@ $compName = $compAddress = $compContact = $compType = "";
     
     else {
         
-        $result = "No Captured Photo";
+        $result = "Submit Fail!";
         print_r($result);
     }
 
