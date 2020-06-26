@@ -69,14 +69,13 @@ include('session.php');
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
-                    </div>
                   </div>
                   <input type="text" id="contact" name="contact" placeholder="Contact #" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); 
                                         this.value = this.value.replace(/(\..*)\./g, '$1');" 
                                                     onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" autocomplete="off" />
                   <input type="text" id="company" name="company" class="form-control" autocomplete="off" placeholder="Company" oninput="queryVisitor()" />
                   <input type="text" id="compAddress" name="compAddress" class="form-control" autocomplete="off" placeholder="Company Address" />
-                  <div class="col">
+                  
                       <select id="visType" name="visType" class="form-control m-0" >
                         <option value="" disabled selected>Visitor Type</option>
                         <option value="Contractor">Contractor</option>
