@@ -65,6 +65,7 @@ include('session.php');
                         <option value="" disabled selected>Type</option>
                         <option value="private">Private</option>
                         <option value="government">Government</option>
+                        <option value="school">School</option>
                     </select>
                     </div>
                   
@@ -126,30 +127,15 @@ include('session.php');
   <script>
    
 
-            
-
-
-
-
-
-
 
       function queryComp() {
-                  // $(function(){ 
+        
                           
-
                       $.ajax({ 
 
                         url: "queryComp.php",
                         method: "get", 
                         
-                      //  async: false,
-                        /** 
-                        data: {'s_fname': s_fname,
-                               's_lname': s_lname,
-                               's_company': s_company
-                        
-                              }, */
 
                       }).done(function( data ) { 
 
@@ -172,21 +158,9 @@ include('session.php');
 
                           $("tbody").html(string); 
                       }); 
-                  // }); 
-                //}); 
-         
+     
 
-
-
-
-
-
-   }          
-
-
-
-
-
+       }          
 
 
 

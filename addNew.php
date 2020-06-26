@@ -76,6 +76,16 @@ include('session.php');
                                                     onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" autocomplete="off" />
                   <input type="text" id="company" name="company" class="form-control" autocomplete="off" placeholder="Company" oninput="queryVisitor()" />
                   <input type="text" id="compAddress" name="compAddress" class="form-control" autocomplete="off" placeholder="Company Address" />
+                  <div class="col">
+                      <select id="visType" name="visType" class="form-control m-0" >
+                        <option value="" disabled selected>Visitor Type</option>
+                        <option value="Contractor">Contractor</option>
+                        <option value="Sales">Sales</option>
+                        <option value="Female">Employee Relative</option>
+                       
+                    </select>
+                  
+                  
                   <div class="btn-group">
                     <button type="button" class="btn btn-info btn-sm" id="btn-submit" name="btn-submit" value="Submit">Submit</button>
                     <button type="button" class="btn btn-info btn-sm" id="btn-capture" name="btn-capture">Capture</button>
