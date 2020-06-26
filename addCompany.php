@@ -24,7 +24,7 @@ include('session.php');
   <link rel="stylesheet" href="./style.css" />
   <link rel="stylesheet" href="operation.css">
   <script src="lodash.js"></script>
-  <script src="/js/compReg.js"></script>
+ 
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -124,7 +124,7 @@ include('session.php');
 
 
   <script>
-   
+    <script src="/js/compReg.js"></script>
 
             
 
