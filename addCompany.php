@@ -183,7 +183,6 @@ include('session.php');
                                                     }).error(function(){
                                                         alert("somethings wrong");
                                                     })
-
                                 
                                 }
                                 else {
