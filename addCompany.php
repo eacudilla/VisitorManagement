@@ -54,8 +54,8 @@ include('session.php');
            
               <div class=" col-8" >
                 <form class="w-35" style="width: 75%" >
-                  <input type="text" id="compName" name="compName" class="form-control" autocomplete="off" placeholder="Company Name" oninput="queryVisitor()" />
-                  <input type="text" id="compAddress" name="compAddress" class="form-control" autocomplete="off" placeholder="Company Address" oninput="queryVisitor()" />
+                  <input type="text" id="compName" name="compName" class="form-control" autocomplete="off" placeholder="Company Name" />
+                  <input type="text" id="compAddress" name="compAddress" class="form-control" autocomplete="off" placeholder="Company Address" />
                 
                   <input type="text" id="compContact" name="contact" placeholder="Contact #" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); 
                                         this.value = this.value.replace(/(\..*)\./g, '$1');" 
@@ -197,11 +197,6 @@ include('session.php');
                         
 
 
-
-
-
-
-
             }
             
 
@@ -303,8 +298,8 @@ span.onclick = function() {
 
 
 
-*/
 
+*/
 
 
 
