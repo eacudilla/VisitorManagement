@@ -120,7 +120,7 @@ include('session.php');
       <div id="notfound"></div>
     
   </main>
-  <script src="/js/compReg.js"></script>
+  <script src="/js/addNew.js"></script>
 
 
   <script>
@@ -132,31 +132,24 @@ include('session.php');
 
 
 
-/** 
+
 
       function queryComp() {
                   // $(function(){ 
-                        
-                    //  $("#getusers").on('click', function(){ 
-                        var s_fname = document.getElementById("fname").value;
-                        var s_lname = document.getElementById("lname").value;
-                        var s_company = document.getElementById("company").value;
-
-
-        if (s_fname || s_lname || s_company) {                
+                          
 
                       $.ajax({ 
 
                         url: "queryDB.php",
-                        method: "post", 
+                        method: "get", 
                         
                       //  async: false,
-
+                        /** 
                         data: {'s_fname': s_fname,
                                's_lname': s_lname,
                                's_company': s_company
                         
-                              },
+                              }, */
 
                       }).done(function( data ) { 
 
@@ -165,18 +158,13 @@ include('session.php');
                         
                         var string='';
                 
-                      // from result create a string of data and append to the div 
                       
                         $.each( result, function( key, value ) { 
                           
-                            string += '<tr> <td>' +  value['idVisitor'] + '</td><td>' 
-                                    + '<img src=\" ' + value['imagePath'] 
-                                    + '\" id = \"img' + value['idVisitor'] + '\" onclick=imgModal(this.id) class = \"myImg\" alt=\"No Photo for this user\" style=\"width:40px; height:auto;\">'  
-                                    + '</td> <td>'+_.startCase(value['fname']) 
+                            string += '<tr> <td>' +  value['id_comp'] + '</td> <td>'+_.startCase(value['comp_name']) 
 
-                                + " " + _.startCase(value['lname']) + '</td> <td>'+ value['age'] + '</td> <td>' + value['gender'] + '</td> <td>' + value['contact'] 
-                                + '</td> <td>' + value['company'] 
-                                + '</td> <td>' + value['compAddress']  + '</td> </tr>'; 
+                                + " " + _.startCase(value['lname']) + '</td> <td>'+ _.startCase(value['comp_address']) + '</td> <td>' + value['comp_number'] + '</td> <td>' 
+                                + _.startCase(value['comp_type']) + '</td> </tr>'; 
                                 }); 
 
      
@@ -200,34 +188,10 @@ include('session.php');
 
    }          
 
- 
-
-
-
-var modal = document.getElementById("myModal");
-var modalImg = document.getElementById("imgModal");
-
-
-function imgModal(imgVisitor){
-   
-var imgSrc = document.getElementById(imgVisitor).src
-  
-
-        modal.style.display = "block";
-        modalImg.src = imgSrc;
-
-}
-
-var span = document.getElementsByClassName("close")[0];
-
-span.onclick = function() { 
-  modal.style.display = "none";
-}
 
 
 
 
-*/
 
 
 
