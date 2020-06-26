@@ -209,7 +209,7 @@ include('session.php');
 
 
 
-
+/** 
 
       function queryComp() {
                   // $(function(){ 
@@ -242,7 +242,7 @@ include('session.php');
                         
                         var string='';
                 
-                      /* from result create a string of data and append to the div */
+                      // from result create a string of data and append to the div 
                       
                         $.each( result, function( key, value ) { 
                           
@@ -257,11 +257,6 @@ include('session.php');
                                 }); 
 
      
-
-
-
-
-
                             string += '</table>'; 
 
                           $("tbody").html(string); 
@@ -282,7 +277,7 @@ include('session.php');
 
    }          
 
-  
+ 
 
 
 
@@ -308,7 +303,7 @@ span.onclick = function() {
 
 
 
-
+*/
 
 
 
