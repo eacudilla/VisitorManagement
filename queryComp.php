@@ -8,7 +8,7 @@ include('config.php');
 //    $searchq = $_POST['search'];
    // $searchq = preg_replace("#[^0-9a-z]#i","",$searchq);
    $result_array = array();
-   $searchq=$_POST['search'];
+  
 
    //if (!empty($search)){
     $sql = "SELECT * FROM company ORDER BY id_comp ASC";

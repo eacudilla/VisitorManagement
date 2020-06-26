@@ -98,7 +98,7 @@ function submitCompReg() {
   if (isValid) {
     // document.getElementById('ss-form').submit();
     $.ajax({
-      url: 'addCompNewDB.php',
+      url: 'newCompReg.php',
       type: 'post',
       enctype: 'multipart/form-data',
       // processData: false,  // Important!

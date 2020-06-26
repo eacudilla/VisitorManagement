@@ -30,7 +30,7 @@ include('session.php');
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
-<body >
+<body onload = "queryComp()" >
   <main>
     <div class="container text-center" >
       <h1 class="p-3 mb-2 bg-info text-white">
