@@ -180,7 +180,7 @@ include('session.php');
                                                 window.location.href = "addCompany.php";
                                              }
                                                  
-                                        }
+                                        })
 
                              }
                                 else {
