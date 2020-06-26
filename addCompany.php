@@ -140,7 +140,7 @@ include('session.php');
 
                       $.ajax({ 
 
-                        url: "queryDB.php",
+                        url: "queryComp.php",
                         method: "get", 
                         
                       //  async: false,
