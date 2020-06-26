@@ -72,8 +72,8 @@ include('session.php');
                   
                   
                   <div class="btn-group">
-                    <button type="button" class="btn btn-info btn-sm" id="btn-submit" name="btn-submit" value="Submit">Submit</button>
-                    <button type="button" class="btn btn-info btn-sm" name="reset" value="Reset">Reset</button>
+                    <button type = "button" class="btn btn-info btn-sm" id="btn-submit" name="btn-submit" value="Submit" onclick = "submitReg()">Submit</button>
+                    <button type = "button" class="btn btn-info btn-sm" name="reset" value="Reset">Reset</button>
 
                    
               
