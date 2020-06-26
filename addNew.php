@@ -328,11 +328,8 @@ include('session.php');
                                                                                             window.location.href = "addNew.php";
                                                                                             
                                                                                                 }
-                                                                                                }).error(function(){
-                                                                                                    alert("somethings wrong");
                                                                                                 })
 
-                                                                                               
                                                                                             
                                                                         } else{
                                                                             alert('Please Capture Photo!');
