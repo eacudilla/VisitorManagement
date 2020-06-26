@@ -81,7 +81,7 @@ include('session.php');
                         <option value="Contractor">Contractor</option>
                         <option value="Sales">Sales</option>
                         <option value="Female">Employee Relative</option>
-                       
+                     </select>    
                   <div class="btn-group">
                     <button type="button" class="btn btn-info btn-sm" id="btn-submit" name="btn-submit" value="Submit">Submit</button>
                     <button type="button" class="btn btn-info btn-sm" id="btn-capture" name="btn-capture">Capture</button>
