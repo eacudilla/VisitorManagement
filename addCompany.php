@@ -174,11 +174,11 @@ include('session.php');
                                             'compType': jcompType,
                                           
                                         
-                                            }
+                                            },
                                              success: function(response){
                                                 alert(response);
                                                 window.location.href = "addCompany.php";
-                                                
+                                             }
                                                  
                                 }
                                 else {
