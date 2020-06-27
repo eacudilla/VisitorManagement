@@ -87,7 +87,7 @@ include('session.php');
                     <button type="button" class="btn btn-info btn-sm" id="btn-capture" name="btn-capture">Capture</button>
                     <button type="button" class="btn btn-info btn-sm" name="reset" value="Reset">Reset</button>
                     <button type="button" class="btn btn-info btn-sm" id="btn-start" >Re-shot</button>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                    <button type="button" class="btn btn-primary" id="btn-modal" data-toggle="modal" data-target="#exampleModalLong">
                      Launch demo modal
                         </button>
               
@@ -180,6 +180,12 @@ include('session.php');
 
   <script>
    
+   $('#exampleModalLongTitle').on('shown.bs.modal', function () {
+  $('#btn-modal').trigger('focus')
+})
+
+
+
   
                               var btnStart = document.getElementById( "btn-start" );
                                // var btnStop = document.getElementById( "btn-stop" );
@@ -234,7 +240,7 @@ include('session.php');
                                         });
                                     }
                                     else {
-                                      
+
 
                                         alert( 'Your browser does not support media devices.' );
 
