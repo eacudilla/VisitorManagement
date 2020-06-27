@@ -74,7 +74,7 @@ include('session.php');
                                         this.value = this.value.replace(/(\..*)\./g, '$1');" 
                                                     onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" autocomplete="off" />
                   <input type="text" id="company" name="company" class="form-control" autocomplete="off" placeholder="Company" oninput="queryVisitor()" />
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                  <button type="button" class="btn btn-primary" id="bnt-modal">
                       Launch demo modal
                     </button>
                   <input type="text" id="compAddress" name="compAddress" class="form-control" autocomplete="off" placeholder="Company Address" />
@@ -159,7 +159,7 @@ include('session.php');
 
   </main>
 
-
+ 
 <!-- Modal -->
 <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -174,7 +174,7 @@ include('session.php');
         fdsfsdfasdasdsad
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" id="closeModal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
@@ -184,6 +184,14 @@ include('session.php');
 
   <script>
 
+$('#btn-modal').click(function () {
+	$('#exampleModalLong').modal('show');
+});
+
+$('#closeModal').click(function () {
+	$('#exampleModalLong').hide();
+});
+    
 
   
                               var btnStart = document.getElementById( "btn-start" );
