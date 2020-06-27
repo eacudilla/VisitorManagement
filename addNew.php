@@ -180,8 +180,8 @@ include('session.php');
 
   <script>
    
-   $('#exampleModalLongTitle').on('shown.bs.modal', function () {
-  $('#btn-modal').trigger('focus')
+   $('exampleModalLongTitle').on('shown.bs.modal', function () {
+  $('btn-modal').trigger('focus')
 })
 
 
