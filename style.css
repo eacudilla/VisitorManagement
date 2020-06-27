@@ -55,5 +55,5 @@ table .btndelete {
 
 
 .modal-backdrop {
-    z-index: 1000;
+    z-index: -1;
 }
