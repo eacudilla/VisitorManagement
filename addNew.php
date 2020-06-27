@@ -189,10 +189,7 @@ include('session.php');
 
 
   <script>
-   
-$('#btn-modal').click(function () {
-	$('#exampleModalLong').modal('show');
-});
+
 
   
                               var btnStart = document.getElementById( "btn-start" );
