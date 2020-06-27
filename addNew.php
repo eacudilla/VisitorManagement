@@ -76,17 +76,24 @@ include('session.php');
                   <input type="text" id="contact" name="contact" placeholder="Contact #" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); 
                                         this.value = this.value.replace(/(\..*)\./g, '$1');" 
                                                     onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" autocomplete="off" />
-                  <input type="text" id="company" name="company" class="form-control" autocomplete="off" placeholder="Company" oninput="queryVisitor()" />
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-                  Launch demo modal
-                </button>
-                  <input type="text" id="compAddress" name="compAddress" class="form-control" autocomplete="off" placeholder="Company Address" />
                   <select id="visType" name="visType" class="form-control m-0" >
                         <option value="" disabled selected>Visitor Type</option>
                         <option value="Contractor">Contractor</option>
                         <option value="Sales">Sales</option>
                         <option value="Female">Employee Relative</option>
-                     </select>    
+                  </select> 
+                  <div class="row">
+
+                        <div class="col">  
+                        <input type="text" id="company" name="company" class="form-control" autocomplete="off" placeholder="Company" oninput="queryVisitor()" />
+                        </div>
+                        <div class="col"> 
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Select</button>
+                        </div>
+                  </div>
+
+                  <input type="text" id="compAddress" name="compAddress" class="form-control" autocomplete="off" placeholder="Company Address" />
+   
                   <div class="btn-group">
                     <button type="button" class="btn btn-info btn-sm" id="btn-submit" name="btn-submit" value="Submit">Submit</button>
                     <button type="button" class="btn btn-info btn-sm" id="btn-capture" name="btn-capture">Capture</button>
