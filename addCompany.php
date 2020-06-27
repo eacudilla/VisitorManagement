@@ -121,7 +121,7 @@ include('session.php');
       <div id="notfound"></div>
     
   </main>
-  <script src="/js/addNew.js"></script>
+
 
 
   <script>
@@ -168,7 +168,7 @@ include('session.php');
 
 
 
-
+<script src="/js/addNew.js"></script>
 
 </body>
 
