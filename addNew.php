@@ -74,9 +74,9 @@ include('session.php');
                                         this.value = this.value.replace(/(\..*)\./g, '$1');" 
                                                     onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" autocomplete="off" />
                   <input type="text" id="company" name="company" class="form-control" autocomplete="off" placeholder="Company" oninput="queryVisitor()" />
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Launch demo modal
-                  </button>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                      Launch demo modal
+                    </button>
                   <input type="text" id="compAddress" name="compAddress" class="form-control" autocomplete="off" placeholder="Company Address" />
                   <select id="visType" name="visType" class="form-control m-0" >
                         <option value="" disabled selected>Visitor Type</option>
@@ -157,12 +157,15 @@ include('session.php');
     
 
 
+  </main>
+
+
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -177,13 +180,6 @@ include('session.php');
     </div>
   </div>
 </div>
-
-
-
-
-  </main>
-
-<!-- Modal -->
 
 
   <script>
