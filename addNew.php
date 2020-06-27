@@ -74,7 +74,7 @@ include('session.php');
                                         this.value = this.value.replace(/(\..*)\./g, '$1');" 
                                                     onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" autocomplete="off" />
                   <input type="text" id="company" name="company" class="form-control" autocomplete="off" placeholder="Company" oninput="queryVisitor()" />
-                  <button type="button" class="btn btn-primary" id="bnt-modal">
+                  <button type="button" class="btn btn-primary" id="btn-modal">
                       Launch demo modal
                     </button>
                   <input type="text" id="compAddress" name="compAddress" class="form-control" autocomplete="off" placeholder="Company Address" />
