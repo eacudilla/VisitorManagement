@@ -190,7 +190,7 @@ include('session.php');
   <script>
    
 $('#btn-modal').click(function () {
-	$('#exampleModalLong').modal({show : true});
+	$('#exampleModalLong').modal('show');
 });
 
   
