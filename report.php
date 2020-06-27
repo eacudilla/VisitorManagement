@@ -210,7 +210,7 @@ function getLast(){
         url: "queryLast.php",
         method: "post", 
         
-      //  async: false,
+        async: false,
 
         data: {
           
