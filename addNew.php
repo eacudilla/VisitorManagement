@@ -188,6 +188,7 @@ $('#btn-modal').click(function () {
 	$('#exampleModalLong').modal('show');
 });
 
+
 $('#closeModal').click(function () {
 	$('#exampleModalLong').hide();
 });
