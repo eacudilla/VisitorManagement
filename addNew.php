@@ -163,7 +163,7 @@ include('session.php');
 
  
 <!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal fade modal-backdrop" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -196,9 +196,6 @@ include('session.php');
 
 
   <script>
-$('#exampleModalLong').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus')
-})
 
 
 $('#btn-modal').click(function () {
