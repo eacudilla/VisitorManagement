@@ -185,7 +185,7 @@ include('session.php');
   <script>
 
 $('#btn-modal').click(function () {
-	$('#exampleModalLong').modal('focus');
+	$('#exampleModalLong').modal('show');
 });
 
 
