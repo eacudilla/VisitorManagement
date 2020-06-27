@@ -155,10 +155,10 @@ include('session.php');
       </div>
       <div id="notfound"></div>
     
-  </main>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+
+
+      <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -177,6 +177,14 @@ include('session.php');
     </div>
   </div>
 </div>
+
+
+
+
+  </main>
+
+<!-- Modal -->
+
 
   <script>
    
