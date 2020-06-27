@@ -189,11 +189,9 @@ include('session.php');
 
   <script>
    
-   $('#btn-modal').on('shown.bs.modal', function () {
-  $('#exampleModalLong').trigger('focus')
-})
-
-
+$('#btn-modal').click(function () {
+	$('#exampleModalLong').modal({show : true});
+});
 
   
                               var btnStart = document.getElementById( "btn-start" );
