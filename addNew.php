@@ -78,7 +78,6 @@ include('session.php');
                   <button type="button" class="btn btn-primary" id="btn-modal" data-toggle="modal" data-target="#exampleModalLong">
                      Launch demo modal
                         </button>
-                
                   <input type="text" id="compAddress" name="compAddress" class="form-control" autocomplete="off" placeholder="Company Address" />
                   <select id="visType" name="visType" class="form-control m-0" >
                         <option value="" disabled selected>Visitor Type</option>
