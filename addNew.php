@@ -234,6 +234,7 @@ include('session.php');
                                         });
                                     }
                                     else {
+                                      
 
                                         alert( 'Your browser does not support media devices.' );
 
