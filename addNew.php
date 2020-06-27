@@ -77,9 +77,9 @@ include('session.php');
                                         this.value = this.value.replace(/(\..*)\./g, '$1');" 
                                                     onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" autocomplete="off" />
                   <input type="text" id="company" name="company" class="form-control" autocomplete="off" placeholder="Company" oninput="queryVisitor()" />
-                  <button type="button" class="btn btn-primary" id="btn-modal">
-                      Launch demo modal
-                    </button>
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                  Launch demo modal
+                </button>
                   <input type="text" id="compAddress" name="compAddress" class="form-control" autocomplete="off" placeholder="Company Address" />
                   <select id="visType" name="visType" class="form-control m-0" >
                         <option value="" disabled selected>Visitor Type</option>
@@ -167,7 +167,7 @@ include('session.php');
 
 <!-- Modal -->
 <div class="modal fade" data-backdrop="false" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable" role="document">
+<div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
@@ -176,19 +176,10 @@ include('session.php');
         </button>
       </div>
       <div class="modal-body">
-        <p>dfsdffffffffffffffffffffffffffffffffffff
-          asfasfasfsaf
-          asfasfasf
-          asfasfasf
-          array_shiftasf
-          asf
-          array_shiftasf
-          asf
-          asf
-        </p>
+        ...
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" id="closeModal">Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
