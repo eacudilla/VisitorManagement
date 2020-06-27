@@ -75,6 +75,10 @@ include('session.php');
                                         this.value = this.value.replace(/(\..*)\./g, '$1');" 
                                                     onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" autocomplete="off" />
                   <input type="text" id="company" name="company" class="form-control" autocomplete="off" placeholder="Company" oninput="queryVisitor()" />
+                  <button type="button" class="btn btn-primary" id="btn-modal" data-toggle="modal" data-target="#exampleModalLong">
+                     Launch demo modal
+                        </button>
+                
                   <input type="text" id="compAddress" name="compAddress" class="form-control" autocomplete="off" placeholder="Company Address" />
                   <select id="visType" name="visType" class="form-control m-0" >
                         <option value="" disabled selected>Visitor Type</option>
@@ -87,9 +91,7 @@ include('session.php');
                     <button type="button" class="btn btn-info btn-sm" id="btn-capture" name="btn-capture">Capture</button>
                     <button type="button" class="btn btn-info btn-sm" name="reset" value="Reset">Reset</button>
                     <button type="button" class="btn btn-info btn-sm" id="btn-start" >Re-shot</button>
-                    <button type="button" class="btn btn-primary" id="btn-modal" data-toggle="modal" data-target="#exampleModalLong">
-                     Launch demo modal
-                        </button>
+                   
               
                   </div>
                  </form>
