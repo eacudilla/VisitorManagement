@@ -182,7 +182,13 @@ include('session.php');
 </div>
 
 
+
+
   <script>
+$('#exampleModalLong').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+
 
 $('#btn-modal').click(function () {
 	$('#exampleModalLong').modal('show');
