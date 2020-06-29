@@ -58,7 +58,7 @@ include('session.php');
             
                 <form class="w-35" style="width: 75%" >
                   <input type="hidden" id="search" name="search" class="form-control" autocomplete="off" placeholder="Search: Name or Company" oninput="queryVisitor() " />
-                       <div class="input-group  d-flex justify-content-center" >
+                    <div class="input-group  d-flex justify-content-center" >
                         <div class="input-group-prepend">
                              <div class="input-group-text"  style = "background:none; border:none; ">Show: </div>
                               <select id="pageRow" class="input-group-text" name="page"  style = "background: none; border: none; font-weight: bold;" onchange="queryVisitor()">
@@ -73,7 +73,7 @@ include('session.php');
                              <div class="input-group-text"  style = "background:none; border:none;">End Date</div>
                             <input type="date"  class="form-control" id="endDate" name="endDate" >
                             </div> 
-                            </div>
+                        </div>
                     </div>         
                           
                 </form>
