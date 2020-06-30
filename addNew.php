@@ -183,7 +183,19 @@ include('session.php');
         </button>
       </div>
       <div class="modal-body">
-        ...
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Company</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Select</th>
+                  </tr>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+              </table>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
