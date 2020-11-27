@@ -8,7 +8,7 @@ include('config.php');
 
 
 
-$purpose = $idVisitor = $status = $idEntry = "";
+$purpose = $idVisitor = $status = $idEntry = $delete =  $idVisitorUpdate = "";
 //$_SESSION["imgPath"] = "";
 
 //if(isset($_POST['submit'])) 
@@ -27,22 +27,24 @@ $purpose = $idVisitor = $status = $idEntry = "";
 
         $idVisitor = $_POST['idVisitor'];
         $purpose = $_POST['purpose'];
+        $temp = $_POST['temp'];
 
 
-    $sql = "INSERT INTO visitorEntry (  idVisitor, purpose, statusEntry, time_in) VALUES (?,?,?,?)";
+    $sql = "INSERT INTO visitorEntry (  idVisitor, purpose, statusEntry, time_in,temp) VALUES (?,?,?,?,?)";
     if($stmt = mysqli_prepare($db, $sql)){
         // Bind variables to the prepared statement as parameters
 
        // rename($imagePath,$newImagePath);
         
 
-        mysqli_stmt_bind_param($stmt, "isss", $paramidVisitor, $parampurpose, $paramstatus,$paramdateTime);
+        mysqli_stmt_bind_param($stmt, "isssd", $paramidVisitor, $parampurpose, $paramstatus,$paramdateTime,$paramtemp);
         
         // Set parameters
         $parampurpose = $purpose;
         $paramidVisitor = $idVisitor;
         $paramstatus = $status;
         $paramdateTime = $dateTime;
+        $paramtemp = $temp;
 
 
 
@@ -181,7 +183,7 @@ $purpose = $idVisitor = $status = $idEntry = "";
  if( $status === 'delete'){
 
     $idEntry = $_POST['idEntry'];
-  
+    $idVisitorUpdate = $_POST['idVisitorUpdate'];
 
     $sql = "DELETE FROM visitorEntry WHERE  idEntry = ?";
 
@@ -207,22 +209,66 @@ $purpose = $idVisitor = $status = $idEntry = "";
                      
                      //  $result = "Added Succesfully";
                      
-                         $result = 'Successfully Deleted';
-                     
+                        
+                         $delete='yes';
                      } else{
-                         $result = "Something went wrong. Please try again later.";
+                         $result = "Something went wrong deleting it. Please try again later.";
                      }
 
                      // Close statement
-                     $stmt -> close();
-                     print_r($result);
+                    
+                 
 
                  }
 
-                 $db -> close();
+              
                 
+              if( $delete === 'yes'){
 
 
+                     //$sql = "UPDATE visitorEntry SET purpose = ?, statusEntry = ?, time_out = ?  WHERE idEntry = ?";
+                     $sqlUpdate = "UPDATE visitor SET statusVisitor = ? WHERE  idVisitor = ?";
+                    
+                                    if($stmtu = mysqli_prepare($db, $sqlUpdate)){
+                                        // Bind variables to the prepared statement as parameters
+                                
+                                    // rename($imagePath,$newImagePath);
+                                    
+                                
+                                        mysqli_stmt_bind_param($stmtu, "si", $paramstatus, $paramidVisitor);
+                                        
+                                        // Set parameters
+                                      
+                                        $paramstatus = 'out' ;
+                                        $paramidVisitor = $idVisitorUpdate;
+                                
+                                
+                                
+                                        // Attempt to execute the prepared statement
+                                        if(mysqli_stmt_execute($stmtu)){
+                                            // Redirect to login page
+                                        
+                                        //  $result = "Added Succesfully";
+                                        
+                                            $result = 'Successfully Deleted';
+                                        
+                                        } else{
+                                            $result = "Something went wrong. Please try again later.";
+                                        }
+                                
+                                        // Close statement
+                                        $stmt -> close();
+                                        print_r($result);
+                                    
+                                    }
+                                   
+                             $db -> close();
+                             $delete =  $paramstatus = "";
+
+
+
+                 }
+                
 
 
  }

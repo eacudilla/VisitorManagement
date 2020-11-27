@@ -16,21 +16,30 @@ include('session.php');
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Visitor Monitoring Software</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="stylesheet" href="operation.css">
-  <link href="fontawesome/css/all.css" rel="stylesheet"> 
-
-  <script defer src="fontawesome/js/all.js"></script> <!--load all styles -->
-  <script src="lodash.js"></script>
+  <script src="/js/jquery-3.5.1.min.js"></script>
+  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+  <link href="/fontawesome/css/all.css" rel="stylesheet"> 
+  <script defer src="/fontawesome/js/all.js"></script> 
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/operation.css">
+  <script src="/js/lodash.js"></script>
+  <script src="/js/addNew.js"></script>
   
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+  
+
+
+ <!--load all styles -->
+
+  
+
+
+
 </head>
 
 <body onload="queryVisitor()">
@@ -83,10 +92,11 @@ include('session.php');
             <tr>
               <th scope="col" style="width: 5%">ID</th>
               <th scope="col" style="width: 5%">Photo</th>
-              <th scope="col" style="width: 25%">Name</th>
+              <th scope="col" style="width: 22%">Name</th>
               <th scope="col" style="width: 20%">Company</th>
               <th scope="col" style="width: 35%">Purpose</th>
-              <th scope="col" style="width: 10%">Action</th>
+              <th scope="col" style="width: 8%">Temp</th>
+              <th scope="col" style="width: 5%">Action</th>
              
             </tr>
           </thead>
@@ -138,12 +148,10 @@ include('session.php');
 
                             + " " + _.startCase(value['lname']) + '</td> <td class=\"align-middle\">'+value['company'] 
                             + '</td> <td> <textarea class =\"form-control col-sm-12\" id = \"purpose' + value['idVisitor'] + '\"   name = \"purpose' 
-                            + value['idVisitor'] + ' style="margin: 0;   box-sizing: border-box;" width: 100%;  rows=\"2\" ></textarea></td> <td class=\"align-middle\">' 
+                            + value['idVisitor'] + ' style="margin: 0;   box-sizing: border-box;" width: 100%;  rows=\"2\" ></textarea></td> <td>  <input type=\"text\" id=\"temp' 
                             
-                            
-                            
-                            
-                            + '<input type=\"button\"  class=\"fas fa-plus-circle fa-2x \" style=\"color: #5bc0de;\"  id = \"add' + value['idVisitor'] + '\" value = \"Add\" onclick=addEntry(this.id) />' + '</td> </tr>'; 
+                            + value['idVisitor'] + '\" name=\"temp' + value['idVisitor']  + '\" class=\"form-control\" autocomplete=\"off\" placeholder=\"℃\"             oninput=\"this.value = this.value.replace(/[^0-9.]/g, \'\'); this.value = this.value.replace(/(\\..*)\\./g, \'$1\');\"  onKeyDown=\"if(this.value.length==5 && event.keyCode!=8) return false;\" /> </td>'
+                            +'<td class=\"align-middle\"> <input type=\"button\"  class=\"fas fa-plus-circle fa-2x \" style=\"color: #5bc0de;\"  id = \"add' + value['idVisitor'] + '\" value = \"Add\" onclick=addEntry(this.id) />' + '</td> </tr>'; 
                             }); 
 
 
@@ -163,13 +171,15 @@ include('session.php');
    function addEntry(addVisitor){
    var visitorNum = addVisitor.substr(3);
    var purposeV = "purpose" + visitorNum;
+   var tempV = "temp" + visitorNum;
    var trRemove = "tr" + visitorNum;
    var purposeVisitor = document.getElementById(purposeV).value;
+   var tempVisitor = document.getElementById(tempV).value;
    let status = "in";
 
 
 
-        if(purposeVisitor !== ''){
+        if(purposeVisitor !== '' && tempVisitor !== ''){
                 $.ajax({
                              url: 'timeInDB.php',
                              type: 'post',
@@ -184,6 +194,7 @@ include('session.php');
                                                                                                                     
                                          'purpose': purposeVisitor,
                                          'idVisitor': visitorNum,
+                                         'temp': tempVisitor,
                                          'status' : status
                                                
                                 },
@@ -196,7 +207,7 @@ include('session.php');
                             })
         } else {
 
-            alert ("Purpose field empty!");
+            alert ("Field empty!");
         }
 
 

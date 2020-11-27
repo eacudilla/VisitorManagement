@@ -17,15 +17,13 @@ include('session.php');
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Visitor Monitoring Software</title>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
-  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="stylesheet" href="operation.css">
-  <script src="lodash.js"></script>
+  <script src="/js/jquery-3.5.1.min.js"></script>
+  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+  <link href="/fontawesome/css/all.css" rel="stylesheet"> 
+  <script defer src="/fontawesome/js/all.js"></script> 
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/operation.css">
+  <script src="/js/lodash.js"></script>
   <script src="/js/addNew.js"></script>
   
   
@@ -40,7 +38,7 @@ include('session.php');
       <div><img src="logo.gif" width="40" height="auto"></i> Visitor Management Software</div>
         <div class="btn-group">
           <button class="btn buttonMenu" id="addNew" style="font-weight: bold;">Add Visitor</button>
-          <button class="btn buttonMenu" id="addComp" onclick="window.location.href='addCompany.php'">Add Company</button>
+        <!--  <button class="btn buttonMenu" id="addComp" onclick="window.location.href='addCompany.php'">Add Company</button> -->
           <button class="btn buttonMenu" id="timeIn" onclick="window.location.href='timeIn.php'">Time In</button>
           <button class="btn buttonMenu" id="timeOut" onclick="window.location.href='timeOut.php'">Time Out</button>
           <button class="btn buttonMenu" id="report" onclick="window.location.href='report.php'">Reports</button>
@@ -76,21 +74,22 @@ include('session.php');
                   <input type="text" id="contact" name="contact" placeholder="Contact #" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); 
                                         this.value = this.value.replace(/(\..*)\./g, '$1');" 
                                                     onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;" autocomplete="off" />
+                    <!--   
                   <select id="visType" name="visType" class="form-control m-0" >
                         <option value="" disabled selected>Visitor Type</option>
                         <option value="Contractor">Contractor</option>
                         <option value="Sales">Sales</option>
                         <option value="Female">Employee Relative</option>
                   </select> 
-                  <div class="row">
+                        <div class="row">
 
-                        <div class="col">  
+                        <div class="col">  -->
                         <input type="text" id="company" name="company" class="form-control" autocomplete="off" placeholder="Company" oninput="queryVisitor()" />
-                        </div>
-                        <div class="col"> 
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Select</button>
-                        </div>
-                  </div>
+                      <!--  </div>
+                        <div class="col">   
+                       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">Select</button> 
+                        </div> 
+                  </div> -->
 
                   <input type="text" id="compAddress" name="compAddress" class="form-control" autocomplete="off" placeholder="Company Address" />
    
@@ -271,7 +270,7 @@ $('#closeModal').click(function () {
                                         })
                                         .catch( function( err ) {
 
-                                            console.log( "Unable to access camera: " + err );
+                                           
                                         });
                                     }
                                     else {
@@ -317,6 +316,7 @@ $('#closeModal').click(function () {
                                     
                                     
                                              image_data = capture.toDataURL("image/png");
+                             
                                       // $.post("saveImg.php", {cam_image: image_data});
                                       
                                       //document.getElementById("capture").style.visibility = "visible"
@@ -335,7 +335,8 @@ $('#closeModal').click(function () {
                                     //for submit button
                                     function submitReg() {
 
-
+                               
+                              
 
                                              var jfname = document.getElementById("fname").value;
                                             var jlname = document.getElementById("lname").value;
@@ -368,9 +369,9 @@ $('#closeModal').click(function () {
 
                                                 if(isValid){
                                                    // document.getElementById('ss-form').submit();
-                                                   
+                                                  
                                                             if(image_data !== null){
-
+                                      
                                                                 $.ajax({
                                                                                 url: 'newReg.php',
                                                                                 type: 'post',
@@ -398,8 +399,7 @@ $('#closeModal').click(function () {
                                                                                             
                                                                                                 }
                                                                                                 })
-
-                                                                                            
+     
                                                                         } else{
                                                                             alert('Please Capture Photo!');
                                                                         }
@@ -465,8 +465,6 @@ span.onclick = function() {
 </script>
 
 
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
 
 </body>

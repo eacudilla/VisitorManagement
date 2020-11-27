@@ -11,7 +11,7 @@ include('config.php');
    $searchq=$_POST['search'];
 
 
-   $sql = "SELECT ve.idEntry, ve.idVisitor, v.imagePath, v.fname, v.lname, v.contact, v.company, ve.purpose, ve.statusEntry, ve.time_in
+   $sql = "SELECT ve.idEntry, ve.idVisitor, v.imagePath, v.fname, v.lname, v.contact, v.company, ve.temp, ve.purpose, ve.statusEntry, ve.time_in
  FROM visitorEntry AS ve INNER JOIN visitor as v ON ve.idVisitor = v.idVisitor WHERE (v.fname LIKE '%$searchq%' OR v.fname LIKE '%$searchq%'
  OR v.company LIKE '%$searchq%') AND ve.statusEntry = 'in' ORDER BY ve.time_in ASC";
 

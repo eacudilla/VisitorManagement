@@ -16,22 +16,20 @@ include('session.php');
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Visitor Monitoring Software</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="stylesheet" href="operation.css">
-
-  <link href="./fontawesome/css/all.css" rel="stylesheet"> 
  
-  <script src="lodash.js"></script>
-  <script src="./js/report.js" type="module"></script>
+  <script src="/js/jquery-3.5.1.min.js"></script>
+  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+  <link href="/fontawesome/css/all.css" rel="stylesheet"> 
+  <script defer src="/fontawesome/js/all.js"></script> 
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/operation.css">
+  <script src="/js/lodash.js"></script>
+  <script src="/js/addNew.js"></script>
   
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
 </head>
 
 <body onload="queryVisitor()">
@@ -101,9 +99,10 @@ include('session.php');
             <tr>
               <th scope="col" style="width: 3%">Log#</th>
               <th scope="col" style="width: 3%">Photo</th>
-              <th scope="col" style="width: 25%">Name</th>
+              <th scope="col" style="width: 20%">Name</th>
               <th scope="col" style="width: 20%">Company</th>
               <th scope="col" style="width: 30%">Purpose</th>
+              <th scope="col" style="width: 5%">Temp</th>
               <th scope="col" style="width: 10%">Time In</th>
               <th scope="col" style="width: 9%">Time Out</th>
               
@@ -177,7 +176,7 @@ var pageLast = 1;
                             + '</td> <td class = \"d-flex flex-row\"> ' + value['purpose'] +
                             
                             
-                               '</td> <td class=\"align-middle\" >' 
+                               '</td>    <td class=\"align-middle\">' +   value['temp']     +  '</td>  <td class=\"align-middle\" >' 
                             
                             
                             + value['time_in']  + '</td> <td>'+ value['time_out'] + '</td> </tr>'; 

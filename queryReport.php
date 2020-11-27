@@ -18,7 +18,7 @@ include('config.php');
   
 
 
-$sql = "SELECT ve.idEntry, ve.idVisitor, v.imagePath, v.fname, v.lname, v.contact, v.company, ve.purpose, ve.time_in, ve.time_out
+$sql = "SELECT ve.idEntry, ve.idVisitor, v.imagePath, v.fname, v.lname, ve.temp, v.contact, v.company, ve.purpose, ve.time_in, ve.time_out
 FROM visitorEntry AS ve INNER JOIN visitor as v ON ve.idVisitor = v.idVisitor WHERE (v.fname LIKE '%$searchq%' OR v.fname LIKE '%$searchq%'
 OR v.company LIKE '%$searchq%') AND ve.time_out IS NOT NULL ORDER BY ve.time_in ASC";
 
@@ -39,7 +39,7 @@ unset($sql);
 $limit = 'LIMIT ' .($pageNumber - 1) * $pageRow.',' .$pageRow;
 
 
-$sql = "SELECT ve.idEntry, ve.idVisitor, v.imagePath, v.fname, v.lname, v.contact, v.company, ve.purpose, ve.time_in, ve.time_out
+$sql = "SELECT ve.idEntry, ve.idVisitor, v.imagePath,ve.temp, v.fname, v.lname, v.contact, v.company, ve.purpose, ve.time_in, ve.time_out
 FROM visitorEntry AS ve INNER JOIN visitor as v ON ve.idVisitor = v.idVisitor WHERE (v.fname LIKE '%$searchq%' OR v.fname LIKE '%$searchq%'
 OR v.company LIKE '%$searchq%') AND ve.time_out IS NOT NULL ORDER BY ve.time_in ASC $limit";
 

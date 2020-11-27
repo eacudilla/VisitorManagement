@@ -53,6 +53,7 @@ $fname = $lname = $contact = $company = $result = "";
           $imagePath = $file;
           
           file_put_contents($file, $image_base64);
+ 
 
         // print_r($fileName);
        // } 
@@ -78,7 +79,6 @@ $fname = $lname = $contact = $company = $result = "";
         $paramdate=  $date;
         $paramage = $age;
         $paramgender = $gender;
-        $paramcompAddress = $compAddress;
         $paramcompAddress = $compAddress;
         $paramstatusVisitor ="out";
 

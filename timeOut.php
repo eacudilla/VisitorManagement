@@ -16,21 +16,19 @@ include('session.php');
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Visitor Monitoring Software</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="stylesheet" href="operation.css">
-  <link href="./fontawesome/css/all.css" rel="stylesheet"> 
- 
-  <script defer src="fontawesome/js/all.js"></script> <!--load all styles -->
-  <script src="lodash.js"></script>
+
+
+  <script src="/js/jquery-3.5.1.min.js"></script>
+  <link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css">
+  <link href="/fontawesome/css/all.css" rel="stylesheet"> 
+  <script defer src="/fontawesome/js/all.js"></script> 
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="./css/operation.css">
+  <script src="/js/lodash.js"></script>
+  <script src="/js/addNew.js"></script>
   
 
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body onload="queryVisitor()">
@@ -81,13 +79,14 @@ include('session.php');
         <table class="table table-striped ">
           <thead>
             <tr>
-              <th scope="col" style="width: 3%">Log#</th>
+              <th scope="col" style="width: 3%">ID</th>
               <th scope="col" style="width: 3%">Photo</th>
-              <th scope="col" style="width: 25%">Name</th>
+              <th scope="col" style="width: 20%">Name</th>
               <th scope="col" style="width: 20%">Company</th>
               <th scope="col" style="width: 30%">Purpose</th>
+              <th scope="col" style="width: 4%">Temp</th>
               <th scope="col" style="width: 10%">Time In</th>
-              <th scope="col" style="width: 9%">Action</th>
+              <th scope="col" style="width: 10%">Action</th>
               
              
             </tr>
@@ -133,7 +132,7 @@ include('session.php');
 
                     $.each( result, function( key, value ) { 
                       
-                        string += '<tr> <td class=\"align-middle\">' +  value['idVisitor'] + '</td><td class=\"align-middle\">' 
+                        string += '<tr> <td class=\"align-middle\"  >   '  +  value['idVisitor'] + '</td><td class=\"align-middle\">' 
                                 + '<img src=\" ' + value['imagePath'] 
                                 + '\" id = \"img' + value['idVisitor'] + '\" onclick=imgModal(this.id) class = \"myImg\ img-thumbnail\" alt=\"No Photo for this user\" style=\"width:50px; height:auto;\">'  
                                 + '</td> <td class=\"align-middle\">'+_.startCase(value['fname']) 
@@ -143,13 +142,15 @@ include('session.php');
                             + value['idVisitor'] + ' style="margin: 0;   box-sizing: border-box;" width: 100%;  rows=\"2\" >' + value['purpose']
                             
                             
-                            +'</textarea> <input type=\"hidden\" id=\"check'+ value['idEntry'] +'\" style=\"padding:0; margin:auto; border-style:none;\"  value =\" ✅\"  onclick=checkEdit(this.id)  >   </td> <td class=\"align-middle\" >' 
+                            +'</textarea> <input type=\"hidden\" id=\"check'+ value['idEntry'] +'\" style=\"padding:0; margin:auto; border-style:none;\"  value =\" ✅\"  onclick=checkEdit(this.id)  >   </td> '
+                            
+                            +' <td class=\"align-middle\"> ' + value['temp']  + '℃ </td>       <td class=\"align-middle\" >' 
                             
                             
                             + value['time_in'] +'</td> <td class=\"align-middle\">' 
 
                             + '<input type=\"button\"  class=\"far fa-edit  \" style=\"margin-right: 15px; color: black;\"  id = \"edit' + value['idEntry'] + '\" value = \"Edit\" onclick=editEntry(this.id) />'
-                            + '<input type=\"button\" class=\"far fa-trash-alt   \" style=\"margin-right: 15px; color: red;\"  id = \"delete' + value['idEntry'] + '\" value = \"Edit\" onclick=deleteEntry(this.id) />'
+                            + '<input type=\"button\" class=\"far fa-trash-alt   \" style=\"margin-right: 15px; color: red;\"  id = \"delete' + value['idEntry'] + '\" value = \"'+value['idVisitor']+'\" onclick=\"deleteEntry(this.id, \''+value['idVisitor']+'\' )\" />'
                             + '<input type=\"button\"  class=\"fas fa-sign-out-alt   \" style=\"color: #5bc0de;\"  id = \"out' + value['idEntry'] + '\" value = \"Add\" onclick=outExit(this.id) />' + '</td> </tr>'; 
                             }); 
 
@@ -240,9 +241,10 @@ include('session.php');
    }
 
 
-   function deleteEntry(delEntry){
+   function deleteEntry(delEntry,idVisitor){
     let delID = delEntry.substr(6);
-    let status = "delete"
+    let getidVisitor = idVisitor;
+    let status = "delete";
 
     if (confirm("Are you sure to delete this Entry?")) {
     $.ajax({
@@ -258,7 +260,8 @@ include('session.php');
                                   data: {          
                                                                                                                     
                                          'idEntry': delID,
-                                         'status' : status
+                                         'status' : status,
+                                         'idVisitorUpdate' : getidVisitor
                                                
                                 },
                                     success: function(response){
